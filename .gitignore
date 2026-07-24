@@ -1,0 +1,12 @@
+# Source/scratch files not used directly by the site (site uses assets/ instead)
+170F2639-6FFD-489B-AA9F-B97064636F36.PNG
+38E84226-CE79-4C08-8ABE-5BD5F02A624D.PNG
+C11B2010-80A7-48DE-93F8-0E67121616D5.PNG
+ChatGPT Image*.png
+Bildschirmfoto*.png
+
+# Reference video (149MB) - exceeds GitHub's 100MB file limit, host separately
+EC_Davos_recap_quer_v1.mp4
+
+.DS_Store
+.claude/

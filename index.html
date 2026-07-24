@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hyrox Thun × Tobias Mahrer — Kampagnen-Pitch</title>
+<style>
+  :root{
+    --black:#0b0b0c;
+    --panel:#151517;
+    --panel2:#1c1c1f;
+    --yellow:#f4c400;
+    --white:#f4f4f2;
+    --grey:#9a9a9f;
+    --red:#d52b1e;
+    --line:#2a2a2d;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--black);
+    color:var(--white);
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:90px 0 70px;
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse at 20% 0%, rgba(244,196,0,0.10), transparent 55%),
+      radial-gradient(ellipse at 80% 100%, rgba(213,43,30,0.08), transparent 55%);
+    pointer-events:none;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:12.5px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--yellow); font-weight:700; margin-bottom:22px;
+  }
+  .eyebrow::before{content:"●"; font-size:8px;}
+  h1.title{
+    font-size:clamp(40px,7vw,84px);
+    line-height:0.98;
+    margin:0 0 22px;
+    font-weight:800;
+    letter-spacing:-0.02em;
+  }
+  h1.title span{color:var(--yellow);}
+  .subtitle{
+    font-size:clamp(17px,2.2vw,22px);
+    color:var(--grey);
+    max-width:640px;
+    margin:0 0 40px;
+  }
+  .meta-row{
+    display:flex; flex-wrap:wrap; gap:14px;
+  }
+  .meta-chip{
+    border:1px solid var(--line);
+    background:var(--panel);
+    padding:10px 16px;
+    border-radius:999px;
+    font-size:13.5px;
+    color:var(--white);
+  }
+  .meta-chip b{color:var(--yellow); font-weight:700;}
+
+  /* ---------- COUNTDOWN ---------- */
+  .countdown{
+    display:inline-flex; align-items:center; gap:18px;
+    margin-top:28px; padding:16px 26px;
+    background:linear-gradient(90deg, rgba(244,196,0,0.14), rgba(213,43,30,0.10));
+    border:1px solid rgba(244,196,0,0.35); border-radius:12px;
+  }
+  .countdown .cd-num{
+    font-size:38px; font-weight:800; color:var(--yellow); line-height:1; font-variant-numeric:tabular-nums;
+  }
+  .countdown .cd-text{font-size:13.5px; color:var(--white); line-height:1.4;}
+  .countdown .cd-text b{color:var(--yellow);}
+
+  /* ---------- SECTION GENERIC ---------- */
+  section{padding:70px 0;}
+  .section-line{border-top:1px solid var(--line);}
+  .kicker{
+    font-size:12.5px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--yellow); font-weight:700; margin-bottom:14px;
+  }
+  h2{
+    font-size:clamp(26px,4vw,40px);
+    font-weight:800;
+    margin:0 0 18px;
+    letter-spacing:-0.01em;
+  }
+  .lead{
+    font-size:18px; color:#d6d6d8; max-width:760px; margin:0 0 8px;
+  }
+
+  /* ---------- IDEA ---------- */
+  .idea-grid{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:50px; align-items:start;
+  }
+  .idea-media{
+    border-radius:14px; overflow:hidden; border:1px solid var(--line);
+    position:relative;
+  }
+  .idea-media img{width:100%; height:100%; object-fit:cover;}
+  .idea-media .cap{
+    position:absolute; left:0; right:0; bottom:0;
+    background:linear-gradient(0deg, rgba(0,0,0,.85), transparent);
+    padding:22px 18px 14px; font-size:13px; color:var(--grey);
+  }
+
+  /* ---------- PHONE MOCKUP ---------- */
+  .preview-grid{
+    display:grid; grid-template-columns:0.85fr 1.15fr; gap:56px; align-items:center;
+  }
+  .preview-text .lead{margin-bottom:0;}
+  .phone-wrap{display:flex; justify-content:center;}
+  .phone{
+    width:300px; background:#000; border-radius:42px; padding:14px;
+    border:1px solid #2c2c2f; box-shadow:0 30px 70px rgba(0,0,0,0.55);
+  }
+  .phone-screen{
+    background:#0c0c0d; border-radius:30px; overflow:hidden; position:relative;
+  }
+  .status-bar{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:12px 18px 6px; font-size:12.5px; font-weight:700; color:var(--white);
+  }
+  .status-bar .dot-group{display:flex; gap:4px; align-items:center;}
+  .ig-header{
+    display:flex; align-items:center; gap:10px; padding:8px 14px 10px;
+  }
+  .ig-avatar{
+    width:32px; height:32px; border-radius:50%; flex:none;
+    background:linear-gradient(135deg, var(--yellow), var(--red));
+    display:flex; align-items:center; justify-content:center;
+    font-size:11px; font-weight:800; color:#000;
+  }
+  .ig-user{flex:1; line-height:1.25;}
+  .ig-name{font-size:13px; font-weight:700; color:var(--white);}
+  .ig-loc{font-size:11px; color:var(--grey);}
+  .ig-dots{color:var(--grey); font-weight:800; letter-spacing:1px; font-size:13px;}
+  .ig-media{aspect-ratio:4/5; background:#000;}
+  .ig-media img{width:100%; height:100%; object-fit:cover; display:block;}
+  .ig-actions{
+    display:flex; align-items:center; gap:14px; padding:12px 14px 4px; color:var(--white);
+  }
+  .ig-actions svg{display:block;}
+  .ig-actions .push{margin-left:auto;}
+  .ig-likes{padding:6px 14px 0; font-size:12.5px; font-weight:700; color:var(--white);}
+  .ig-caption{padding:6px 14px 0; font-size:12.5px; color:#e6e6e6; line-height:1.5;}
+  .ig-caption b{font-weight:700; margin-right:4px;}
+  .ig-caption .ig-tags{color:#8fbfe0;}
+  .ig-comments{padding:6px 14px 0; font-size:12px; color:var(--grey);}
+  .ig-time{padding:5px 14px 16px; font-size:10.5px; color:#6f6f73; text-transform:uppercase; letter-spacing:.05em;}
+
+  /* ---------- VIDEO FRAME ---------- */
+  .video-frame{
+    max-width:900px; margin:36px auto 0; border-radius:16px; overflow:hidden;
+    border:1px solid var(--line); background:#000; box-shadow:0 30px 70px rgba(0,0,0,0.5);
+  }
+  .video-chrome{
+    display:flex; align-items:center; gap:8px; padding:12px 16px; background:#1c1c1f;
+  }
+  .video-chrome .dot{width:10px; height:10px; border-radius:50%; flex:none;}
+  .video-chrome .dot:nth-child(1){background:#ff5f57;}
+  .video-chrome .dot:nth-child(2){background:#febc2e;}
+  .video-chrome .dot:nth-child(3){background:#28c840;}
+  .video-chrome .url{
+    margin-left:12px; font-size:12px; color:var(--grey); background:#111;
+    padding:5px 12px; border-radius:6px; flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  }
+  .video-frame video{display:block; width:100%; aspect-ratio:16/9; background:#000;}
+  .video-note{font-size:12.5px; color:var(--grey); text-align:center; max-width:900px; margin:16px auto 0;}
+
+  /* ---------- MECHANICS ---------- */
+  .mech-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:36px;
+  }
+  .mech-card{
+    background:var(--panel); border:1px solid var(--line); border-radius:12px;
+    padding:24px 20px;
+  }
+  .mech-num{
+    font-size:13px; font-weight:800; color:var(--black); background:var(--yellow);
+    width:26px; height:26px; border-radius:6px; display:flex; align-items:center; justify-content:center;
+    margin-bottom:16px;
+  }
+  .mech-card h3{font-size:16px; margin:0 0 8px;}
+  .mech-card p{font-size:14px; color:var(--grey); margin:0;}
+
+  /* ---------- CONTENT GRID ---------- */
+  .grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-top:40px;
+  }
+  .card{
+    background:var(--panel); border:1px solid var(--line); border-radius:14px;
+    overflow:hidden; display:flex; flex-direction:column;
+  }
+  .card .thumb{
+    aspect-ratio:4/5; overflow:hidden; background:#000; position:relative;
+  }
+  .card .thumb img{width:100%; height:100%; object-fit:cover;}
+  .card .idx{
+    position:absolute; top:12px; left:12px;
+    background:rgba(0,0,0,0.65); border:1px solid rgba(255,255,255,0.15);
+    color:var(--yellow); font-weight:800; font-size:12px;
+    padding:4px 9px; border-radius:999px;
+  }
+  .card .body{padding:20px 20px 24px; display:flex; flex-direction:column; gap:12px; flex:1;}
+  .card h3{font-size:18px; margin:0; letter-spacing:-.01em;}
+  .card .tag{
+    font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--grey); font-weight:700;
+  }
+  .card p{font-size:14px; color:#cfcfd1; margin:0;}
+  .card .why{
+    margin-top:auto; padding-top:12px; border-top:1px solid var(--line);
+  }
+  .card .why b{color:var(--yellow); font-size:12.5px; text-transform:uppercase; letter-spacing:.06em; display:block; margin-bottom:6px;}
+  .card .why p{color:#e3e3e4;}
+
+  /* ---------- TIMELINE ---------- */
+  .timeline{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:36px;
+  }
+  .phase{
+    background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:24px;
+    border-top:3px solid var(--yellow);
+  }
+  .phase:nth-child(2){border-top-color:var(--red);}
+  .phase:nth-child(3){border-top-color:#ffffff;}
+  .phase .when{font-size:12.5px; color:var(--grey); text-transform:uppercase; letter-spacing:.08em; font-weight:700; margin-bottom:10px;}
+  .phase h3{font-size:18px; margin:0 0 10px;}
+  .phase p{font-size:14px; color:#cfcfd1; margin:0;}
+
+  /* ---------- FORMAT-MIX ---------- */
+  .format-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:36px;
+  }
+  .format-card{
+    background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:26px;
+  }
+  .format-card .flabel{
+    display:inline-block; font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--black); background:var(--yellow); padding:4px 10px; border-radius:999px; margin-bottom:14px;
+  }
+  .format-card:nth-child(2) .flabel{background:var(--red); color:var(--white);}
+  .format-card h3{font-size:19px; margin:0 0 10px;}
+  .format-card p{font-size:14px; color:#cfcfd1; margin:0 0 14px;}
+  .format-card ul{margin:0; padding-left:18px; font-size:13.5px; color:var(--grey);}
+  .format-card ul li{margin-bottom:6px;}
+
+  /* ---------- ASSET TABLE ---------- */
+  .asset-table{
+    width:100%; border-collapse:collapse; margin-top:36px; font-size:14px;
+  }
+  .asset-table th{
+    text-align:left; font-size:11.5px; text-transform:uppercase; letter-spacing:.08em; color:var(--yellow);
+    font-weight:700; padding:0 14px 12px; border-bottom:1px solid var(--line);
+  }
+  .asset-table td{
+    padding:16px 14px; border-bottom:1px solid var(--line); color:#dcdcdc; vertical-align:top;
+  }
+  .asset-table tr:last-child td{border-bottom:none;}
+  .asset-table td.name{color:var(--white); font-weight:700; white-space:nowrap;}
+  .asset-table td .sub{display:block; color:var(--grey); font-weight:400; font-size:12.5px; margin-top:3px;}
+  .pill{
+    display:inline-block; font-size:11px; font-weight:700; padding:3px 9px; border-radius:999px;
+    text-transform:uppercase; letter-spacing:.04em; white-space:nowrap;
+  }
+  .pill.organic{background:rgba(244,196,0,0.14); color:var(--yellow); border:1px solid rgba(244,196,0,0.35);}
+  .pill.paid{background:rgba(213,43,30,0.14); color:#ff8a7d; border:1px solid rgba(213,43,30,0.35);}
+  .pill.both{background:rgba(255,255,255,0.08); color:var(--white); border:1px solid rgba(255,255,255,0.2);}
+
+  /* ---------- ORGANIC / PAID SPLIT ---------- */
+  .split{
+    display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:36px;
+  }
+  .split-card{
+    background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:26px;
+    border-top:3px solid var(--yellow);
+  }
+  .split-card.paid{border-top-color:var(--red);}
+  .split-card .stag{font-size:12.5px; text-transform:uppercase; letter-spacing:.08em; font-weight:700; color:var(--grey); margin-bottom:6px;}
+  .split-card h3{font-size:19px; margin:0 0 14px;}
+  .split-card ul{margin:0; padding-left:18px; font-size:14px; color:#cfcfd1;}
+  .split-card ul li{margin-bottom:10px;}
+  .split-arrow{
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    margin:22px 0 0; font-size:13px; color:var(--grey); text-align:center;
+  }
+
+  /* ---------- PRICING ---------- */
+  .price-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:36px; align-items:stretch;
+  }
+  .price-card{
+    background:var(--panel); border:1px solid var(--line); border-radius:16px;
+    padding:30px; display:flex; flex-direction:column; position:relative;
+  }
+  .price-card.premium{
+    border-color:rgba(244,196,0,0.4);
+    background:linear-gradient(180deg, rgba(244,196,0,0.06), var(--panel) 140px);
+  }
+  .price-card.pr{
+    border-color:rgba(213,43,30,0.45);
+    background:linear-gradient(180deg, rgba(213,43,30,0.08), var(--panel) 140px);
+  }
+  .price-badge{
+    position:absolute; top:-13px; right:28px;
+    background:var(--yellow); color:var(--black); font-size:11.5px; font-weight:800;
+    text-transform:uppercase; letter-spacing:.06em; padding:5px 12px; border-radius:999px;
+  }
+  .price-badge.pr-badge{background:var(--red); color:var(--white);}
+  .price-name{font-size:12.5px; text-transform:uppercase; letter-spacing:.1em; color:var(--grey); font-weight:700; margin-bottom:8px;}
+  .price-card.premium .price-name{color:var(--yellow);}
+  .price-card.pr .price-name{color:#ff8a7d;}
+  .price-card.pr .price-flavor{color:#ff8a7d;}
+  .price-card.pr .price-total .tval{color:#ff8a7d;}
+  .price-card h3{font-size:28px; margin:0 0 4px;}
+  .price-flavor{font-size:12.5px; color:var(--yellow); font-style:italic; margin-bottom:14px;}
+  .price-fit{font-size:13.5px; color:var(--grey); margin:0 0 22px; min-height:40px;}
+  .price-lines{list-style:none; margin:0 0 20px; padding:0; flex:1;}
+  .price-lines li{
+    display:flex; justify-content:space-between; gap:16px; font-size:13.5px; color:#dcdcdc;
+    padding:10px 0; border-bottom:1px solid var(--line);
+  }
+  .price-lines li span:last-child{color:var(--grey); white-space:nowrap; font-variant-numeric:tabular-nums;}
+  .price-total{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding-top:18px; margin-top:4px; border-top:2px solid var(--line);
+  }
+  .price-total .tlabel{font-size:14px; color:var(--grey);}
+  .price-total .tval{font-size:30px; font-weight:800; color:var(--white);}
+  .price-card.premium .price-total .tval{color:var(--yellow);}
+  .price-note{font-size:12px; color:var(--grey); margin-top:10px;}
+  .reco-box{
+    margin-top:30px; background:var(--panel2); border:1px solid var(--line); border-left:3px solid var(--yellow);
+    border-radius:10px; padding:20px 24px;
+  }
+  .reco-box .rtag{font-size:12px; text-transform:uppercase; letter-spacing:.08em; color:var(--yellow); font-weight:700; margin-bottom:8px;}
+  .reco-box p{font-size:14.5px; color:#dcdcdc; margin:0;}
+
+  /* ---------- CHANNELS / KPI ---------- */
+  .two-col{
+    display:grid; grid-template-columns:1fr 1fr; gap:50px;
+  }
+  ul.plain{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:14px;}
+  ul.plain li{
+    display:flex; gap:12px; font-size:15px; color:#dcdcdc; padding-bottom:14px; border-bottom:1px solid var(--line);
+  }
+  ul.plain li:last-child{border-bottom:none;}
+  ul.plain b{color:var(--white); min-width:150px; display:inline-block;}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    padding:60px 0 50px; border-top:1px solid var(--line);
+  }
+  .foot-row{
+    display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:24px;
+  }
+  .foot-brand{font-weight:800; font-size:20px;}
+  .foot-brand span{color:var(--yellow);}
+  .foot-meta{font-size:13px; color:var(--grey); text-align:right;}
+  .foot-meta div{margin-bottom:4px;}
+
+  @media (max-width:1180px){
+    .price-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:900px){
+    .idea-grid{grid-template-columns:1fr;}
+    .preview-grid{grid-template-columns:1fr; gap:36px;}
+    .preview-grid .phone-wrap{order:-1;}
+    .mech-grid{grid-template-columns:repeat(2,1fr);}
+    .grid{grid-template-columns:repeat(2,1fr);}
+    .timeline{grid-template-columns:1fr;}
+    .two-col{grid-template-columns:1fr;}
+    .format-grid{grid-template-columns:1fr;}
+    .split{grid-template-columns:1fr;}
+    .asset-table{font-size:13px;}
+    .price-grid{grid-template-columns:1fr;}
+    .foot-row{flex-direction:column; align-items:flex-start;}
+    .foot-meta{text-align:left;}
+  }
+  @media (max-width:560px){
+    .mech-grid{grid-template-columns:1fr;}
+    .grid{grid-template-columns:1fr;}
+    .asset-table thead{display:none;}
+    .asset-table, .asset-table tbody, .asset-table tr, .asset-table td{display:block; width:100%;}
+    .asset-table tr{padding:14px 0; border-bottom:1px solid var(--line);}
+    .asset-table td{border-bottom:none; padding:4px 0;}
+    .asset-table td.name{padding-top:0;}
+    section{padding:50px 0;}
+    .hero{padding:60px 0 46px;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Social-Media-Kampagnen-Pitch · Hyrox Thun × Tobias Mahrer</div>
+      <h1 class="title">Hyrox im <span>Alltag.</span></h1>
+      <p class="subtitle">Der Wettkampf hat keine Startlinie mehr — er steht plötzlich mitten in der Thuner Altstadt. Eine Guerilla-Video-Serie, die echte Passanten-Reaktionen zu Content macht, der sich von selbst verschickt.</p>
+      <div class="meta-row">
+        <div class="meta-chip">Veranstalter: <b>Hyroxthun</b></div>
+        <div class="meta-chip">Host: <b>Crossfit Triplex, Steffisburg</b></div>
+        <div class="meta-chip">Kampagnen-Laufzeit: <b>Mitte Aug – Mitte Sept 2026</b></div>
+        <div class="meta-chip">Ziel: <b>Last-Minute-Tickets & Event-Hype</b></div>
+      </div>
+      <div class="countdown">
+        <div class="cd-num" id="cdNum">–</div>
+        <div class="cd-text">bis zum <b>Hyrox-Simulationsevent</b><br>26. September 2026</div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section-line">
+    <div class="wrap">
+      <div class="preview-grid">
+        <div class="preview-text">
+          <div class="kicker">Vorschau</div>
+          <h2>Sieht aus wie jeder andere Post im Feed.</h2>
+          <p class="lead">Kein Werbe-Look, kein Hochglanz-Intro — genau das macht den Moment glaubwürdig, bevor der Kontext-Bruch kommt und klar wird, was hier eigentlich abgeht.</p>
+        </div>
+        <div class="phone-wrap">
+          <div class="phone">
+            <div class="phone-screen">
+              <div class="status-bar">
+                <span>9:41</span>
+                <span class="dot-group">●●●</span>
+              </div>
+              <div class="ig-header">
+                <div class="ig-avatar">HT</div>
+                <div class="ig-user">
+                  <div class="ig-name">hyroxthun</div>
+                  <div class="ig-loc">Thun, Schweiz</div>
+                </div>
+                <div class="ig-dots">•••</div>
+              </div>
+              <div class="ig-media"><img src="assets/altstadt-rudern.png" alt="Instagram-Vorschau: Rudern mitten in der Thuner Altstadt"></div>
+              <div class="ig-actions">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.35-9.5-8.5C.5 8.5 2 5 5.5 5c2 0 3.5 1.2 4.5 2.7C11 6.2 12.5 5 14.5 5 18 5 19.5 8.5 21.5 12.5 19 16.65 12 21 12 21z"/></svg>
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                <span class="push"></span>
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
+              </div>
+              <div class="ig-likes">12'847 Gefällt mir</div>
+              <div class="ig-caption"><b>hyroxthun</b>Der Weg zum Hyrox beginnt jetzt. Bist du bereit? <span class="ig-tags">#hyroxthun #hyrox #thun</span></div>
+              <div class="ig-comments">Alle 342 Kommentare ansehen</div>
+              <div class="ig-time">vor 2 Stunden</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-line">
+    <div class="wrap">
+      <div class="idea-grid">
+        <div class="idea-media">
+          <img src="assets/altstadt-rudern.png" alt="Athlet rudert mitten in der Thuner Altstadt">
+          <div class="cap">Rathausstrasse, Thun — ein Rudergerät, wo eigentlich niemand eines erwartet.</div>
+        </div>
+        <div>
+          <div class="kicker">Die Idee</div>
+          <h2>Der beste Ad ist der, den man nicht als Ad erkennt.</h2>
+          <p class="lead">Statt eines weiteren gestellten Fitness-Reels stellen wir echte Hyrox-Stationen — Rudern, Sandbag-Carry, Sled, Ski-Erg — mitten in den ganz normalen Thuner Alltag: Altstadt-Gasse, Freibad, Seeufer, Aussichtspunkt. Kein Green Screen, kein Cast. Nur ein Athlet, ein Gerät, echte Passanten — und eine Kamera, die die Reaktionen einfängt.</p>
+          <p class="lead">Das Ergebnis ist kein Werbespot, sondern ein Moment, den Leute anhalten, zurückspulen und an drei Leute weiterschicken, mit der Nachricht: <i>„Was geht hier ab, ahahaha.“</i> Genau dieser Reflex ist die Kampagne.</p>
+        </div>
+      </div>
+
+      <div class="mech-grid">
+        <div class="mech-card">
+          <div class="mech-num">1</div>
+          <h3>Ein wiedererkennbarer Athlet</h3>
+          <p>Immer dieselbe Person (Cap, Sonnenbrille, schwarzes Outfit) — baut über die Serie eine Figur auf, die man wiedererkennt: „Der Typ schon wieder?!“</p>
+        </div>
+        <div class="mech-card">
+          <div class="mech-num">2</div>
+          <h3>Echte Reaktionen, kein Cast</h3>
+          <p>Passanten wissen nichts vom Dreh. Ihre Blicke, Lacher und Handy-Stopps sind der eigentliche Inhalt — 100% authentisch, 0% Schauspiel.</p>
+        </div>
+        <div class="mech-card">
+          <div class="mech-num">3</div>
+          <h3>Physischer Kundenstopper</h3>
+          <p>Ein simples Schild mit QR-Code („Der Weg zum Hyrox beginnt jetzt“) steht immer neben der Szene — für alle, die live vorbeikommen und mehr wissen wollen.</p>
+        </div>
+        <div class="mech-card">
+          <div class="mech-num">4</div>
+          <h3>Vertical, kurz, hook-first</h3>
+          <p>15–25 Sekunden, Hook in den ersten 2 Sekunden, gebaut für Reels/TikTok-Autoplay — kein Intro, direkt in die Irritation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-line">
+    <div class="wrap">
+      <div class="kicker">Content-Serie</div>
+      <h2>7 Motive, ein Athlet, ein Sommer in Thun.</h2>
+      <p class="lead">Alle 7 Motive sind bereits als Bildbeispiele produziert.</p>
+
+      <div class="grid">
+
+        <div class="card">
+          <div class="thumb"><span class="idx">01</span><img src="assets/altstadt-rudern.png" alt="Rudern in der Altstadt"></div>
+          <div class="body">
+            <div class="tag">Altstadt · Rudern</div>
+            <h3>Der Ruderer mitten im Städtli</h3>
+            <p>Ein Rudergerät steht auf dem Kopfsteinpflaster der Rathausstrasse, direkt vor dem Wahrzeichen-Turm. Der Athlet rudert, als wäre das völlig normal — Touristen schlendern irritiert vorbei.</p>
+            <div class="why"><b>Warum es funktioniert</b><p>Maximaler Kontext-Bruch: Fitnessgerät + Fussgängerzone erzwingt Anhalten und Filmen. Die Passanten liefern den Hook, nicht das Skript.</p></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><span class="idx">02</span><img src="assets/altstadt-sandbag-1.png" alt="Sandbag-Carry Altstadt"></div>
+          <div class="body">
+            <div class="tag">Altstadt · Sandbag-Carry</div>
+            <h3>Der Sandbag-Spaziergang</h3>
+            <p>Statt Einkaufstasche trägt er einen schweren Sandbag huckepack durch die enge Gasse, vorbei an Café-Terrassen — wie ein ganz gewöhnlicher Feierabend-Nachhauseweg.</p>
+            <div class="why"><b>Warum es funktioniert</b><p>Baut die Wiedererkennung der Serie auf: „Ist das wieder der Typ von Video 1?“ Zweit-Content, der Zuschauer aktiv auf die nächste Station warten lässt.</p></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><span class="idx">03</span><img src="assets/pool-rudern.png" alt="Rudern im Freibad"></div>
+          <div class="body">
+            <div class="tag">Freibad · Rudern</div>
+            <h3>Training an der Poolkante</h3>
+            <p>Rudergerät direkt am Beckenrand des Strandbads — während alle anderen im Hintergrund entspannt schwimmen oder rutschen, zieht er seine Schläge.</p>
+            <div class="why"><b>Warum es funktioniert</b><p>Der Sommer-Kontrast „alle chillen, einer trainiert“ ist eine visuelle Pointe, die als Meme-Format 1:1 weiterlebt und geteilt wird, ohne Kontext zu brauchen.</p></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><span class="idx">04</span><img src="assets/skierg-aussicht.png" alt="Skierg mit Aussicht auf Schloss Thun"></div>
+          <div class="body">
+            <div class="tag">Aussichtspunkt · Ski-Erg</div>
+            <h3>Postkarten-Aussicht, brutale Anstrengung</h3>
+            <p>Auf einem Hügel über Thun, Schloss und See im Hintergrund, zieht der Athlet an einer Ski-Erg-Station — reinstes Schweizer Postkartenmotiv trifft auf Höchstleistung.</p>
+            <div class="why"><b>Warum es funktioniert</b><p>Höchster Screenshot-Wert der Serie — die Ästhetik allein sorgt für Saves und Feed-Posts, unabhängig vom Überraschungsmoment.</p></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><span class="idx">05</span><img src="assets/burpee-schloss.png" alt="Burpees vor Schloss Thun"></div>
+          <div class="body">
+            <div class="tag">Schloss Thun · Burpees</div>
+            <h3>Burpees zwischen den Touristenfotos</h3>
+            <p>Direkt an der Aare vor dem Schloss Thun, wo Touristen ihre Ferienfotos schiessen, wirft sich der Athlet mitten ins Bild in Burpees und Liegestütz-Sprünge.</p>
+            <div class="why"><b>Warum es funktioniert</b><p>Er „stört“ fremde Ferienfotos auf möglichst absurde Weise — dieser Fremdscham-Moment mit echten Touristenreaktionen ist Gold für internationale Reaction-Cuts.</p></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><span class="idx">06</span><img src="assets/sandbag-sunset.png" alt="Sandbag-Carry bei Sonnenuntergang am Thunersee"></div>
+          <div class="body">
+            <div class="tag">Thunersee · Sandbag-Carry</div>
+            <h3>Goldene Stunde am Seeufer</h3>
+            <p>Der Athlet marschiert mit Sandbag auf der Schulter der untergehenden Sonne entgegen — cinematisch, fast wie der Closer eines Werbespots.</p>
+            <div class="why"><b>Warum es funktioniert</b><p>Emotionaler Tonwechsel von „wtf, lustig“ zu „krass, inspirierend“ — perfekter Kampagnen-Abschluss für Story-Highlights und Ad-Retargeting.</p></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="thumb"><span class="idx">07</span><img src="assets/aareufer-sled.png" alt="Sled-Zug am Aareufer neben Aareschwimmern"></div>
+          <div class="body">
+            <div class="tag">Aareufer · Sled-Zug</div>
+            <h3>„Gegen den Strom“</h3>
+            <p>Direkt am Ufer, wo Einheimische im Sommer mit Schwimmringen gemütlich die Aare hinuntertreiben (das legendäre Thuner/Berner „Aareschwimmen“), zieht der Athlet schweissgebadet einen Sled gegen die Fliessrichtung am Ufer entlang.</p>
+            <div class="why"><b>Warum es funktioniert</b><p>Doppelte Pointe: visueller Kontrast (Anstrengung vs. Lifestyle) <i>und</i> eine Metapher, die sich selbst erzählt — „während alle mit dem Strom schwimmen, geht er dagegen“. Aareschwimmen kennt in der Region jeder, das holt auch Leute ausserhalb der Fitness-Bubble ab.</p></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section-line">
+    <div class="wrap">
+      <div class="kicker">Rollout</div>
+      <h2>Drei Phasen, Mitte August bis Mitte September.</h2>
+      <div class="timeline">
+        <div class="phase">
+          <div class="when">Phase 1 · Mitte – Ende August</div>
+          <h3>Seeding</h3>
+          <p>2–3 Guerilla-Videos pro Woche (Altstadt, Freibad). Aufbau der Wiedererkennungsfigur, erste Kommentare & Shares, organisches Reichweiten-Testing je Motiv.</p>
+        </div>
+        <div class="phase">
+          <div class="when">Phase 2 · Anfang – Mitte September</div>
+          <h3>Peak Hype</h3>
+          <p>Stärkste Motive (Schloss, Aussichtspunkt, Aareufer) folgen, plus Boosting der bestperformenden Clips. QR-Kundenstopper live an mehreren Thuner Standorten.</p>
+        </div>
+        <div class="phase">
+          <div class="when">Phase 3 · Letzte Tage vor Event</div>
+          <h3>Last Call</h3>
+          <p>Sonnenuntergangs-Video als emotionaler Abschluss, Countdown-Stories, Retargeting-Ads an alle, die mit der Serie interagiert haben — Push auf die letzten Tickets.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-line">
+    <div class="wrap">
+      <div class="two-col">
+        <div>
+          <div class="kicker">Kanäle</div>
+          <h2>Distribution</h2>
+          <ul class="plain">
+            <li><b>Instagram Reels</b> Hauptkanal, plus 1–2 Postkarten-Motive als Feed-Posts.</li>
+            <li><b>TikTok</b> identischer Cutdown, TikTok-natives Sounddesign/Trends nutzen.</li>
+            <li><b>Lokale Gruppen</b> Facebook-/Insta-Gruppen Thun & Region für organischen Erstimpuls.</li>
+            <li><b>Vor Ort</b> QR-Kundenstopper an den realen Drehorten als Trigger für Live-Zufallspublikum.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="kicker">Erfolgsmessung</div>
+          <h2>KPIs</h2>
+          <ul class="plain">
+            <li><b>Views / Shares</b> Reichweite & Weiterleit-Quote pro Motiv (Kernziel: „herumgeschickt werden“).</li>
+            <li><b>Kommentare</b> Anteil „wtf/lol“-Reaktionen als Indikator für Viralitäts-Wirkung.</li>
+            <li><b>QR-Scans</b> Vor-Ort-Neugier, die in Klicks auf die Event-Seite übersetzt wird.</li>
+            <li><b>Ticket-Verkauf</b> Verlauf während Phase 2 & 3 im Vergleich zur Vorwoche.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-line">
+    <div class="wrap">
+      <div class="kicker">Kampagnen-Struktur</div>
+      <h2>Wie das Ganze konkret aufgebaut ist.</h2>
+      <p class="lead">Die Serie lebt von zwei Formaten, die sich gegenseitig verstärken — plus einem festen Asset-Set, das von Anfang an organisch <i>und</i> paid mitgedacht ist.</p>
+
+      <div class="format-grid">
+        <div class="format-card">
+          <span class="flabel">Format A</span>
+          <h3>Reels (Video)</h3>
+          <p>Die 15–25-sekündigen Guerilla-Clips selbst — der eigentliche „wtf ahaha“-Moment. Rohe, leicht wackelige Handkamera-Optik, echte Umgebungstöne statt Musik-Overlay in der ersten Hälfte.</p>
+          <ul>
+            <li>Trägt die Reichweite (Autoplay, Sound on, Shares)</li>
+            <li>Baut die wiedererkennbare Athleten-Figur über die Serie auf</li>
+            <li>Bester Rohstoff für Cutdowns, Stories, spätere Ads</li>
+          </ul>
+        </div>
+        <div class="format-card">
+          <span class="flabel">Format B</span>
+          <h3>Bilder mit Text</h3>
+          <p>Ein starkes Standbild aus jeder Szene (die bereits produzierten Kampagnenbilder sind genau das), plus kurzer Text-Overlay im Sign-Stil: „Der Weg zum Hyrox beginnt jetzt.“</p>
+          <ul>
+            <li>Funktioniert ohne Ton, sofort verständlich im Feed</li>
+            <li>Günstiger im Media-Einkauf als Video — ideal für Paid</li>
+            <li>Gut für Retargeting & „Jetzt Ticket sichern“-CTAs</li>
+          </ul>
+        </div>
+      </div>
+
+      <table class="asset-table">
+        <thead>
+          <tr>
+            <th>Asset</th>
+            <th>Menge</th>
+            <th>Zweck</th>
+            <th>Einsatz</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="name">Guerilla-Reels<span class="sub">15–25s, vertikal, Rohschnitt</span></td>
+            <td>7 Stück (1 pro Motiv)</td>
+            <td>Reichweite, Irritation, Share-Trigger</td>
+            <td><span class="pill organic">Organisch</span></td>
+          </tr>
+          <tr>
+            <td class="name">Bild-Posts mit Text<span class="sub">Standbild + Sign-Zitat</span></td>
+            <td>7 Stück (1 pro Motiv)</td>
+            <td>Feed-Präsenz, Recall, Conversion</td>
+            <td><span class="pill both">Organisch + Paid</span></td>
+          </tr>
+          <tr>
+            <td class="name">Story-Cutdowns<span class="sub">6–9s Kurzversion</span></td>
+            <td>7 Stück</td>
+            <td>Sticker/Countdown/Swipe-up-Link</td>
+            <td><span class="pill organic">Organisch</span></td>
+          </tr>
+          <tr>
+            <td class="name">Reaktions-Schnitt<span class="sub">Making-of / echte Passantenreaktionen</span></td>
+            <td>1–2 Stück</td>
+            <td>Social Proof, Vertrauen, „ist das real?“</td>
+            <td><span class="pill organic">Organisch</span></td>
+          </tr>
+          <tr>
+            <td class="name">Hook-Varianten<span class="sub">gleiche Reels, andere erste 2 Sek.</span></td>
+            <td>2–3 pro Top-Motiv</td>
+            <td>A/B-Testing für Media-Buying</td>
+            <td><span class="pill paid">Paid</span></td>
+          </tr>
+          <tr>
+            <td class="name">Vor-Ort-Kundenstopper<span class="sub">Schild + QR-Code</span></td>
+            <td>1 pro Drehort</td>
+            <td>Live-Traffic von echten Passanten zur Event-Seite</td>
+            <td><span class="pill organic">Organisch (offline)</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="split">
+        <div class="split-card">
+          <div class="stag">Phase 1 · kein Media-Budget</div>
+          <h3>Organisch</h3>
+          <ul>
+            <li>Alle 7 Reels + Cutdowns laufen zuerst rein organisch — kein Geld, volles Risiko beim Athleten/Team, nicht bei der Kampagne.</li>
+            <li>Ziel ist Signal, nicht Reichweite: Watch-Time, Shares und Kommentare zeigen, welche 2–3 Motive am meisten „herumgeschickt“ werden.</li>
+            <li>Lokale Gruppen & Reposts von Hyroxthun/Triplex-Kanälen sorgen für den Erstimpuls ohne Ads.</li>
+          </ul>
+        </div>
+        <div class="split-card paid">
+          <div class="stag">Phase 2–3 · gezieltes Budget</div>
+          <h3>Paid</h3>
+          <ul>
+            <li>Nur die organisch bestperformenden Motive bekommen Media-Budget als Boosted Post — kein Streuverlust auf schwache Clips.</li>
+            <li>Regionales Targeting (Thun/Bern-Umkreis, Interesse Fitness/CrossFit/Running) plus Retargeting an alle, die ein Reel >50% geschaut oder die Event-Seite besucht haben.</li>
+            <li>Bild-Posts mit Text laufen parallel als günstigere Static-Ads mit hartem CTA „Jetzt Ticket sichern“ — Reels erzeugen die Aufmerksamkeit, Bilder holen die Conversion.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="split-arrow">Organisch findet die Gewinner-Motive → Paid skaliert nur diese Gewinner in den letzten 2–3 Wochen vor dem Event.</div>
+    </div>
+  </section>
+
+  <section class="section-line">
+    <div class="wrap">
+      <div class="kicker">Investition</div>
+      <h2>Drei Pakete — je nachdem, wie viel ihr selbst übernehmt.</h2>
+      <p class="lead">Richtpreise in CHF, exkl. MWST. Fokus aller Pakete: Content-Produktion & Schnitt. Vor-Ort-Kundenstopper, Media-Budget (je nach Bedarf) und das laufende Posting-Management übernimmt Hyroxthun/Crossfit Triplex — das ist nicht Teil dieses Angebots.</p>
+
+      <div class="price-grid">
+        <div class="price-card">
+          <div class="price-name">Paket 1</div>
+          <h3>Shred</h3>
+          <div class="price-flavor">Cutting-Phase — schlank &amp; schnell</div>
+          <p class="price-fit">Schlankes Set-up für den Start: ein Drehtag mit Profi-Kamera, 5 Motive — Content &amp; Schnitt aus einer Hand.</p>
+          <ul class="price-lines">
+            <li><span>Konzept & Drehplan (5 Motive)</span><span>CHF 300</span></li>
+            <li><span>1 Drehtag, Profi-Kamera & Equipment, eigener Athlet</span><span>CHF 1'250</span></li>
+            <li><span>Schnitt: 5 Reels + Text-Overlay, Stills aus Video</span><span>CHF 700</span></li>
+            <li><span>Story-Cutdowns + einfacher Posting-Fahrplan</span><span>CHF 150</span></li>
+            <li><span>Vor-Ort-Kundenstopper (Schild, QR-Code)</span><span>Hyroxthun/Triplex</span></li>
+            <li><span>Media-Budget (Paid Ads)</span><span>gemäss Bedarf</span></li>
+            <li><span>Management & Postings</span><span>Hyroxthun/Triplex</span></li>
+          </ul>
+          <div class="price-total"><span class="tlabel">Total Shred</span><span class="tval">CHF 2'400</span></div>
+          <p class="price-note">5 Reels, gedreht mit Profi-Kamera. Ich liefere Content & Schnitt. Kundenstopper, Media-Budget und laufendes Posting-Management übernimmt Hyroxthun/Triplex.</p>
+        </div>
+
+        <div class="price-card premium">
+          <span class="price-badge">Empfehlung für Peak-Phase</span>
+          <div class="price-name">Paket 2</div>
+          <h3>Bulk</h3>
+          <div class="price-flavor">Mass-Phase — volles Programm</div>
+          <p class="price-fit">Alle 7 Motive, beide Formate plus Kampagnen-Zusammenschnitt — an einem gestrafften Drehtag.</p>
+          <ul class="price-lines">
+            <li><span>Konzept, Location-Scouting & Drehplan (7 Motive)</span><span>CHF 300</span></li>
+            <li><span>1 ganztägiger Drehtag, Profi-Kamera & Equipment</span><span>CHF 1'250</span></li>
+            <li><span>Schnitt: 7 Reels, 7 Bild-Posts, 1 Hook-Version + Kampagnen-Zusammenschnitt</span><span>CHF 1'000</span></li>
+            <li><span>Story-Cutdowns + Content-/Posting-Kalender</span><span>CHF 250</span></li>
+            <li><span>Vor-Ort-Kundenstopper (Schild, QR-Code)</span><span>Hyroxthun/Triplex</span></li>
+            <li><span>Media-Budget (Paid Ads)</span><span>gemäss Bedarf</span></li>
+            <li><span>Management & Postings</span><span>Hyroxthun/Triplex</span></li>
+          </ul>
+          <div class="price-total"><span class="tlabel">Total Bulk</span><span class="tval">CHF 2'800</span></div>
+          <p class="price-note">Ich liefere Content & Schnitt für alle 7 Motive plus den Kampagnen-Zusammenschnitt. Kundenstopper, Media-Budget-Einsatz und laufendes Posting-Management übernimmt Hyroxthun/Triplex.</p>
+        </div>
+
+        <div class="price-card pr">
+          <span class="price-badge pr-badge">Inkl. Event-Tag</span>
+          <div class="price-name">Paket 3</div>
+          <h3>PR</h3>
+          <div class="price-flavor">Race Day — die Kür</div>
+          <p class="price-fit">Alles aus Bulk, plus komplette Event-Tag-Abdeckung mit 2 Personen vor Ort: Action-Fotos, Aftermovie und Interview-Reel.</p>
+          <ul class="price-lines">
+            <li><span>Konzept, Location-Scouting & Drehplan (7 Motive)</span><span>CHF 300</span></li>
+            <li><span>1 ganztägiger Drehtag, Profi-Kamera & Equipment</span><span>CHF 1'250</span></li>
+            <li><span>Schnitt: 7 Reels, 7 Bild-Posts, 1 Hook-Version + Kampagnen-Zusammenschnitt</span><span>CHF 1'000</span></li>
+            <li><span>Story-Cutdowns + Content-/Posting-Kalender</span><span>CHF 250</span></li>
+            <li><span>Event-Tag vor Ort: 2 Personen (Foto + Video/Interviews), ca. 150 Bilder</span><span>CHF 500</span></li>
+            <li><span>Aftermovie (ca. 60s, Sponsoren-Einblendungen) + Interview-Reel „Warum Hyrox Thun“</span><span>CHF 500</span></li>
+            <li><span>Vor-Ort-Kundenstopper (Schild, QR-Code)</span><span>Hyroxthun/Triplex</span></li>
+            <li><span>Media-Budget (Paid Ads)</span><span>gemäss Bedarf</span></li>
+            <li><span>Management & Postings</span><span>Hyroxthun/Triplex</span></li>
+          </ul>
+          <div class="price-total"><span class="tlabel">Total PR</span><span class="tval">CHF 3'800</span></div>
+          <p class="price-note">Deckt die ganze Kampagne <b>und</b> den Event-Tag selbst ab (2 Personen vor Ort) — inkl. Aftermovie mit Sponsoren-Einblendungen als bleibendes Asset für nächstes Jahr.</p>
+        </div>
+      </div>
+
+      <div class="reco-box">
+        <div class="rtag">Was macht für dieses Event Sinn?</div>
+        <p>Für eine lokale Simulations-Veranstaltung dieser Grösse liefert bereits <b>Shred den eigentlichen viralen Mechanismus</b> — der Kontext-Bruch in den Reels funktioniert unabhängig vom Media-Spend. Der Schritt zu <b>Bulk</b> kostet nur CHF 400 mehr und bringt 2 zusätzliche Motive, die Bild-Posts fürs Feed und den Kampagnen-Zusammenschnitt gleich mit — bei dieser kleinen Differenz spricht wenig dagegen. <b>PR</b> lohnt sich, sobald der Event-Tag selbst als Content festgehalten werden soll: Aftermovie und Sponsoren-Sichtbarkeit sind oft genau das, was Sponsoren fürs nächste Jahr überzeugt, und die 2 Personen vor Ort ermöglichen Fotos und Interviews gleichzeitig, ohne dass etwas verpasst wird. Der grösste Hebel, wenn zusätzliches Budget vorhanden ist, ist unabhängig vom Paket ohnehin nicht mehr Produktion, sondern <b>in den letzten 2–3 Wochen vor dem Event gezielt ein kleines Media-Budget auf die 1–2 stärksten Reels zu legen</b>, um die Ticket-Deadline zu pushen.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-line">
+    <div class="wrap">
+      <div class="kicker">Referenz</div>
+      <h2>So könnte das Aftermovie aussehen.</h2>
+      <p class="lead">Zur Einordnung, kein Hyrox-Thun-Material: ein Aftermovie aus einer früheren Produktion (EC Davos) als Beispiel für Schnitt-Tempo, Bildsprache und wie Sponsoren-Einblendungen wirken. Für Hyrox Thun entsteht ein eigenes, komplett auf euer Event zugeschnittenes Video im PR-Paket.</p>
+      <div class="video-frame">
+        <div class="video-chrome">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="url">hyroxthun.ch/aftermovie-beispiel</span>
+        </div>
+        <video controls preload="metadata">
+          <source src="EC_Davos_recap_quer_v1.mp4" type="video/mp4">
+          Dein Browser kann dieses Video nicht abspielen — öffne die Datei direkt.
+        </video>
+      </div>
+      <p class="video-note">Referenzarbeit „EC Davos Recap“ · 60s · zeigt Schnittstil & Sponsoren-Platzierung, nicht den finalen Hyrox-Thun-Look.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-row">
+        <div class="foot-brand">HYROX<span>THUN</span> × TOBIAS MAHRER</div>
+        <div class="foot-meta">
+          <div>Veranstalter: Hyroxthun</div>
+          <div>Host-Location: Crossfit Triplex, Steffisburg</div>
+          <div>Konzept & Umsetzung: Tobias Mahrer</div>
+          <div>Kampagnen-Pitch · interne Präsentation</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      var eventDate = new Date('2026-09-26T00:00:00');
+      var now = new Date();
+      var diffDays = Math.ceil((eventDate - now) / (1000*60*60*24));
+      var el = document.getElementById('cdNum');
+      var label = document.querySelector('.countdown .cd-text');
+      if(diffDays > 1){
+        el.textContent = diffDays;
+        label.innerHTML = 'Tage bis zum <b>Hyrox-Simulationsevent</b><br>26. September 2026';
+      } else if(diffDays === 1){
+        el.textContent = '1';
+        label.innerHTML = 'Tag bis zum <b>Hyrox-Simulationsevent</b><br>26. September 2026';
+      } else if(diffDays === 0){
+        el.textContent = '';
+        label.innerHTML = '<b>Heute ist Eventtag!</b><br>26. September 2026';
+      } else {
+        el.textContent = '';
+        label.innerHTML = '<b>Hyrox-Simulationsevent</b> war am<br>26. September 2026';
+      }
+    })();
+  </script>
+
+</body>
+</html>
