@@ -77,14 +77,18 @@
 
   /* ---------- COUNTDOWN ---------- */
   .countdown{
-    display:inline-flex; align-items:center; gap:18px;
-    margin-top:28px; padding:16px 26px;
+    display:inline-flex; align-items:center; gap:22px; flex-wrap:wrap;
+    margin-top:28px; padding:18px 26px;
     background:linear-gradient(90deg, rgba(244,196,0,0.14), rgba(213,43,30,0.10));
     border:1px solid rgba(244,196,0,0.35); border-radius:12px;
   }
+  .countdown .cd-units{display:flex; align-items:center; gap:14px;}
+  .countdown .cd-unit{display:flex; flex-direction:column; align-items:center; min-width:44px;}
   .countdown .cd-num{
-    font-size:38px; font-weight:800; color:var(--yellow); line-height:1; font-variant-numeric:tabular-nums;
+    font-size:32px; font-weight:800; color:var(--yellow); line-height:1; font-variant-numeric:tabular-nums;
   }
+  .countdown .cd-unit-label{font-size:10px; text-transform:uppercase; letter-spacing:.08em; color:var(--grey); margin-top:4px;}
+  .countdown .cd-sep{font-size:26px; font-weight:800; color:rgba(244,196,0,0.35); margin-top:-14px;}
   .countdown .cd-text{font-size:13.5px; color:var(--white); line-height:1.4;}
   .countdown .cd-text b{color:var(--yellow);}
 
@@ -420,8 +424,16 @@
         <div class="meta-chip">Ziel: <b>Last-Minute-Tickets & Event-Hype</b></div>
       </div>
       <div class="countdown">
-        <div class="cd-num" id="cdNum">–</div>
-        <div class="cd-text">bis zum <b>Hyrox-Simulationsevent</b><br>26. September 2026</div>
+        <div class="cd-units">
+          <div class="cd-unit"><span class="cd-num" id="cdDays">–</span><span class="cd-unit-label">Tage</span></div>
+          <span class="cd-sep">:</span>
+          <div class="cd-unit"><span class="cd-num" id="cdHours">–</span><span class="cd-unit-label">Std</span></div>
+          <span class="cd-sep">:</span>
+          <div class="cd-unit"><span class="cd-num" id="cdMins">–</span><span class="cd-unit-label">Min</span></div>
+          <span class="cd-sep">:</span>
+          <div class="cd-unit"><span class="cd-num" id="cdSecs">–</span><span class="cd-unit-label">Sek</span></div>
+        </div>
+        <div class="cd-text" id="cdText">bis zum <b>Hyrox-Simulationsevent</b><br>26. September 2026</div>
       </div>
     </div>
   </div>
@@ -852,23 +864,34 @@
   <script>
     (function(){
       var eventDate = new Date('2026-09-26T00:00:00');
-      var now = new Date();
-      var diffDays = Math.ceil((eventDate - now) / (1000*60*60*24));
-      var el = document.getElementById('cdNum');
-      var label = document.querySelector('.countdown .cd-text');
-      if(diffDays > 1){
-        el.textContent = diffDays;
-        label.innerHTML = 'Tage bis zum <b>Hyrox-Simulationsevent</b><br>26. September 2026';
-      } else if(diffDays === 1){
-        el.textContent = '1';
-        label.innerHTML = 'Tag bis zum <b>Hyrox-Simulationsevent</b><br>26. September 2026';
-      } else if(diffDays === 0){
-        el.textContent = '';
-        label.innerHTML = '<b>Heute ist Eventtag!</b><br>26. September 2026';
-      } else {
-        el.textContent = '';
-        label.innerHTML = '<b>Hyrox-Simulationsevent</b> war am<br>26. September 2026';
+      var elDays = document.getElementById('cdDays');
+      var elHours = document.getElementById('cdHours');
+      var elMins = document.getElementById('cdMins');
+      var elSecs = document.getElementById('cdSecs');
+      var elText = document.getElementById('cdText');
+      var units = document.querySelector('.countdown .cd-units');
+      var pad = function(n){ return String(n).padStart(2,'0'); };
+
+      function tick(){
+        var diff = eventDate - new Date();
+        if(diff <= 0){
+          units.style.display = 'none';
+          elText.innerHTML = '<b>Hyrox-Simulationsevent</b> läuft bereits<br>26. September 2026';
+          clearInterval(timer);
+          return;
+        }
+        var days = Math.floor(diff / (1000*60*60*24));
+        var hours = Math.floor((diff / (1000*60*60)) % 24);
+        var mins = Math.floor((diff / (1000*60)) % 60);
+        var secs = Math.floor((diff / 1000) % 60);
+        elDays.textContent = days;
+        elHours.textContent = pad(hours);
+        elMins.textContent = pad(mins);
+        elSecs.textContent = pad(secs);
+        elText.innerHTML = 'bis zum <b>Hyrox-Simulationsevent</b><br>26. September 2026';
       }
+      tick();
+      var timer = setInterval(tick, 1000);
     })();
   </script>
 
